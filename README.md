@@ -41,7 +41,7 @@ Have a bug or an issue with this website? [Open a new issue](https://github.com/
 
 This application was created by and is maintained by **Tanima Singh**.
 
-Portfolio is based on the [Bootstrap](http://getbootstrap.com/) framework
+Application is based on the [Bootstrap](http://getbootstrap.com/) framework
 
 ## Copyright and License
 
