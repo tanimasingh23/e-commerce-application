@@ -1,0 +1,33 @@
+<navbar-card></navbar-card>
+
+<div class="container">
+    <div class="row">
+        <div class="card col-lg-6 col-md-6 col-sm-10 col-10 offset-lg-3 offset-md-3 offset-sm-1 offset-1">
+            <div class="modal-body">
+                <form ng-submit="login.userLogin()">
+                    <div class="text-center">
+                        <h2>Login</h2>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address</label>
+                        <div class="input-group pb-modalreglog-input-group">
+                            <input type="email" class="form-control" id="email" placeholder="Email" required="required" ng-model="login.email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <div class="input-group pb-modalreglog-input-group">
+                            <input type="password" class="form-control" id="pws" placeholder="Password" required="required" ng-model="login.password">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Log in</button>
+                    </div>
+                    <p class="text-center">New to GetSetShop? <a href="#/signup">Signup!</a> </p>
+                    <p class="text-center"> <a href="#/">Shop!</a></p>
+                </form>      
+            </div>  
+        </div>
+    </div>
+</div>
+ 

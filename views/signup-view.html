@@ -1,0 +1,63 @@
+<navbar-card></navbar-card>
+
+<div class="container">
+	<div class="row">
+		<div class="card col-lg-6 col-md-8 col-sm-10 col-10 offset-lg-3 offset-md-2 offset-sm-1 offset-1">
+            <div class="modal-body">
+                <form class="pb-modalreglog-form-reg" ng-submit = "signup.userSignup()">
+                    <div class="text-center">
+                    	<h2>Signup with GetSetShop!</h2>
+                	</div>
+                	<br>
+                	 <div class="form-group">
+                        <label for="firstname">First Name *</label>
+                        <div class="input-group pb-modalreglog-input-group"> 
+                            <input type="text" class="form-control" placeholder="Your First Name" required="required"  ng-model="signup.firstName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="middlename">Middle Name</label>
+                        <div class="input-group pb-modalreglog-input-group">
+                            <input type="text" class="form-control" placeholder="Your Middle Name" ng-model="signup.middleName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="lastname">Last Name</label>
+                        <div class="input-group pb-modalreglog-input-group">
+                            <input type="text" class="form-control" placeholder="Your Last Name" ng-model="signup.lastName">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address *</label>
+                        <div class="input-group pb-modalreglog-input-group">
+                            <input type="email" class="form-control" placeholder="Your Email Address" required="required" ng-model="signup.email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Address *</label>
+                        <div class="input-group pb-modalreglog-input-group">
+                            <textarea rows="2" cols="40" type="text" class="form-control" placeholder="Your Address" required="required" ng-model="signup.address"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+                        <div class="input-group pb-modalreglog-input-group">
+                            <input type="password" class="form-control" placeholder="Choose Password" required="required" minlength="8" ng-model="signup.password">
+                        </div>
+                   </div>                      
+                   <div class="form-group">
+                        <label for="mobilenumber">Mobile Number</label>
+                        <div class="input-group pb-modalreglog-input-group">
+                            <input type="text" class="form-control" placeholder="Your Mobile Number" ng-model="signup.mobileNumber" minlength="10" maxlength="10">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                		<button type="submit" class="btn btn-primary">Sign up</button>
+            		</div>
+            		<p class="text-center">Already have an account? <a href="#/login">Login!</a> </p>
+                    <p class="text-center"> <a href="#/">Shop!</a></p>
+                </form>
+            </div>      
+	    </div>
+    </div>
+</div>

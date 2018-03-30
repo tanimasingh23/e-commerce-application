@@ -1,0 +1,40 @@
+<navbar-card></navbar-card>
+
+<div ng-init = "product.getAllProducts()">
+	<div class="nav-scroller bg-white box-shadow navbar-expand-xl">
+		<nav class="nav nav-underline">
+			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive1" aria-controls="navbarResponsive1" aria-expanded="false" aria-label="Toggle navigation">
+      			Category
+      			<i class="fa fa-bars"></i>
+    		</button>
+    		<div class="collapse navbar-collapse" id="navbarResponsive1">
+			<div class="list-group">
+				<a class="nav-link navcolor" ng-click="product.getAllProducts()"><strong>ALL</strong></a>
+			</div>
+		    <div class="list-group navcolor" ng-repeat="category in product.categories">
+		        <a class="nav-link" ng-click="product.getProductByCategory(category)"><strong>{{ category | uppercase }}</strong></a>
+		    </div>  
+		    <div class="col-lg-5">
+		      	<form class="form-inline my-2 my-md-0 col-lg-12">
+		      		<input class="form-control col-lg-8" type="text" ng-model="product.search" placeholder="Search for products, brand and more">
+		    	</form>
+		    </div>
+		    <a class="nav-link dropdown-toggle" id="dropdown04" href = "" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><strong>SORT BY</strong></a>
+		    <div class="dropdown-menu" aria-labelledby="dropdown04">
+		        <a class="dropdown-item" ng-click="price = 'productPrice'">Price: Low to High</a>
+		        <a class="dropdown-item" ng-click="price = '-productPrice'">Price: High to Low</a>
+		    </div>  
+		    </div>	
+		</nav>
+	</div>
+	<div class="container">
+		<div class="row" >
+			<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-10 offset-lg-0 offset-md-0 offset-sm-0 offset-1" ng-repeat="prod in product.allProducts | filter : product.search | orderBy : price" ng-if="product.showAllProducts">
+				<allproduct-card prod= "prod"></allproduct-card>	
+			</div>
+			<div class="col-xl-3 col-lg-3 col-md-4 col-sm-6 col-10 offset-lg-0 offset-md-0 offset-sm-0 offset-1" ng-repeat="prod in product.productByCategory | filter : product.search | orderBy : price" ng-if="product.showByCategory" ng-init="prod.quantity=1">
+				<categoryproduct-card prod="prod"></categoryproduct-card>
+			</div>
+		</div>
+	</div>
+</div>

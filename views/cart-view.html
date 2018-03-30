@@ -1,0 +1,44 @@
+<navbar-card></navbar-card>
+
+<div class="container">
+	<div class="row">
+		<h2 class="col-lg-6 offset-lg-3 text-center">Item(s) in Bag:</h2>
+		<hr>
+	</div>
+	<br>
+	<div class="row" ng-if="cart.itemsInCart.length">
+		<input type="button" class="btn button btn-success col-lg-6 col-md-6 col-sm-6 col-6 offset-lg-3 offset-md-3 offset-sm-3 offset-3 text-center" value="Order" ng-click="cart.orderFromCart()">
+	</div>
+	<div class="row" ng-if="cart.itemsInCart.length">
+		<div class="col-lg-4 col-md-6 col-sm-6 col-10 offset-lg-0 offset-md-0 offset-sm-0 offset-1"  ng-repeat="prod in cart.itemsInCart">
+			<div class="card space text-center">
+				<img ng-src="{{prod.productImage}}" class="card-img-top img-res">
+					<div>
+						<input type="button" class="btn button btn-primary" value="Reduce Quantity" ng-click="cart.reduceItemFromCart(prod.productId, prod.qty)">
+						<input type="button" class="btn button btn-primary" value="Remove Item" ng-click="cart.removeItemFromCart(prod.productId, $index)">	
+					</div>
+				<hr>
+				<strong>{{prod.productName}}</strong>
+				<p>Category: {{prod.productCategory}}</p>
+				<p><strong>Quantity:</strong> {{prod.quantity}}</p>
+				<p><strong>Total Price : </strong>{{prod.productPrice * prod.quantity}}</p>
+				<p><strong>Added On : </strong>{{prod.addedOn | date : medium}}</p>
+				<a class="blue" ng-click="prod.showDesc = true" ng-if="!prod.showDesc">More Info </a>
+				<a class="hide" ng-if="prod.showDesc">{{prod.productDescription}}
+					<br>
+					<p class="blue" ng-click="prod.showDesc = false">Less Info</p>
+				</a>
+			</div>	
+		</div>
+	</div>
+	<br>
+	<div class="row" ng-if="cart.itemsInCart.length">
+		<input type="button" class="btn button btn-danger col-lg-6 col-md-6 col-sm-6 col-6 offset-lg-3 offset-md-3 offset-sm-3 offset-3 text-center" value="Clear Bag" ng-click="cart.clearMyCart()">
+	</div>
+	<br>	
+	<div class="text-center" ng-if="!cart.itemsInCart.length">
+			<h4>Bag is Empty.</h4>
+	</div>
+	<br>
+	<a class="btn btn-success button col-lg-6 col-md-6 col-sm-6 col-6 offset-lg-3 offset-md-3 offset-sm-3 offset-3" href="#/">Continue Shopping</a>
+</div>

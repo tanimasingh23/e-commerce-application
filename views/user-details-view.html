@@ -1,0 +1,49 @@
+<navbar-card></navbar-card>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-8 col-md-8 col-sm-10 col-10 offset-lg-2 offset-md-2 offset-sm-1 offset-1 card space">
+			<div>
+				<h3 class="text-center">My Account</h3>
+				<hr>
+				<p>	<strong>Full Name : </strong>{{user.data.firstName}}
+					{{user.data.middleName}}
+					{{user.data.lastName}} 
+				</p>
+				<p><strong>Email : </strong>
+					{{user.data.email}}
+				</p>
+				<p><strong>Shipping Address : </strong>
+					{{user.data.address}}
+				</p>
+				<p><strong>Last login Date : </strong> 
+					{{user.data.lastLogin | date : 'medium'}}
+				</p>
+				<div ng-if="user.data.mobileNumber">
+					<p><strong>Mobile Number : </strong> {{user.data.mobileNumber}}</p>
+				</div>
+				<p><strong>Number of orders placed : </strong> 
+					{{user.data.orderHistory.length}}
+				</p>
+				<p><strong>Account Creation Date : </strong> 
+					{{user.data.accountCreated | date : 'medium'}}
+				</p>
+				<br>	
+			</div>
+			<div class="text-center">
+				<button class="btn btn-info" ng-click="user.showPasswordForm()">Change Password</button>
+			<br>
+			<br>
+			</div>			
+			<form name="passwordChangeForm" class="form-group" ng-if="user.showForm === true">					
+				<input type="password" class="form-control" name="oldpassword" placeholder="Old Password" required="required" ng-model="user.oldpassword">	
+				<br> 	
+				<input type="password" class="form-control" name="newpassword" placeholder="New Password" required="required" ng-model="user.newpassword" minlength="8" >
+				<br>
+				<div class="text-center">
+					<button type="button" class="btn btn-info" ng-click="user.changePassword()">Update</button>	
+				</div>					
+			</form>	
+		</div>
+	</div>
+</div>

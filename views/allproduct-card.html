@@ -1,0 +1,20 @@
+<div class="card space text-center" ng-init="prod.quantity=1" >
+	<img ng-src="{{prod.productImage}}" class="card-img-top img-res">
+	<div>
+		<input type="number" name="quantity" class="form-control" placeholder="Enter quantity" min="1" max="8" ng-model="prod.quantity">
+	<br>
+	</div>
+	<div>
+		<button class="btn button btn-primary" ng-click="orderNow(prod.productId, prod.quantity)" >Order Now</button>
+		<button class="btn button btn-primary" ng-click="addToCart(prod.productId, prod.quantity)">Add to Bag</button>
+		<hr>
+	</div>
+	<strong>{{prod.productName}}</strong>
+	<p>Category: {{prod.productCategory}}</p>
+	<strong>Rs. {{prod.productPrice}}</strong>
+	<a class="blue" ng-click="prod.showDesc = true" ng-if="!prod.showDesc" >More Info </a>
+	<a class="hide" ng-if="prod.showDesc">{{prod.productDescription}}
+		<br>
+		<p class="blue" ng-click="prod.showDesc = false">Less Info</p>
+	</a>	
+</div>
